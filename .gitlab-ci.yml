@@ -3,9 +3,7 @@ stages:
   - stage
   - deploy
 
-artifacts:
-  paths:
-    - public
+
 
 build:
   stage: build
@@ -13,6 +11,9 @@ build:
   cache:
     paths:
       - vendor/
+  artifacts:
+    paths:
+      - public
   tags:
     - apps
     - docker
