@@ -3,9 +3,24 @@ stages:
 
 deploy:
   stage: deploy
-  image: python:latest
+  image: python:3.8
+  environment:
+    name: randen.me
+    url: http://randen.me
   tags:
+    - apps
     - docker
+  only:
+    - master
+  variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  cache:
+    paths:
+      - .cache/pip
   script:
+    - python -V
+    - pip install virtualenv
+    - virtualenv venv
+    - source venv/bin/activate
     - pip install awscli
     - aws s3 cp ./ s3://randen.me/ --recursive --exclude "*" --include "*.html"
