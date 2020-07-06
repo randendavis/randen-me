@@ -4,6 +4,8 @@ stages:
 deploy:
   stage: deploy
   image: python:latest
+  tags:
+    - docker
   script:
     - pip install awscli
     - aws s3 cp ./ s3://randen.me/ --recursive --exclude "*" --include "*.html"
