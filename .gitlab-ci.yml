@@ -3,8 +3,6 @@ stages:
   - stage
   - deploy
 
-
-
 build:
   stage: build
   image: ruby:2.6
@@ -25,6 +23,19 @@ build:
     - bundle install -j $(nproc) --path vendor/ruby
     - bundle exec jekyll build -d public
 
+stage:
+  stage: stage
+  environment:
+    name: me.randen.bp
+    url: http://me.randen.bp
+  tags:
+    - apps
+    - shell
+  only:
+    - master
+  script:
+    - rsync -aPv ./public/ /srv/randen/
+
 deploy:
   stage: deploy
   image: python:3.8
@@ -34,6 +45,7 @@ deploy:
   tags:
     - apps
     - docker
+  when: manual
   only:
     - master
   variables:
