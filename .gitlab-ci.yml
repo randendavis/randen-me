@@ -1,0 +1,9 @@
+stages:
+  - deploy
+
+deploy:
+  stage: deploy
+  image: python:latest
+  script:
+    - pip install awscli
+    - aws s3 cp ./ s3://randen.me/ --recursive --exclude "*" --include "*.html"
