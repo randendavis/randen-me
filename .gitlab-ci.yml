@@ -10,7 +10,7 @@ build:
   image: ruby:2.6
   cache:
     paths:
-      - vendor/
+      - vendor
   artifacts:
     paths:
       - public
@@ -47,4 +47,4 @@ deploy:
     - virtualenv venv
     - source venv/bin/activate
     - pip install awscli
-    - aws s3 cp ./public s3://randen.me/ --recursive
+    - aws s3 sync ./public s3://randen.me/ --recursive
