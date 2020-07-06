@@ -1,5 +1,28 @@
 stages:
+  - build
+  - stage
   - deploy
+
+artifacts:
+  paths:
+    - public
+
+build:
+  stage: build
+  image: ruby:2.6
+  cache:
+    paths:
+      - vendor/
+  tags:
+    - apps
+    - docker
+  script:
+    # Print out ruby version for debugging
+    - ruby -v
+    - gem install bundler
+    # Install dependencies into ./vendor/ruby
+    - bundle install -j $(nproc) --path vendor/ruby
+    - bundle exec jekyll build -d public
 
 deploy:
   stage: deploy
@@ -23,4 +46,4 @@ deploy:
     - virtualenv venv
     - source venv/bin/activate
     - pip install awscli
-    - aws s3 cp ./ s3://randen.me/ --recursive --exclude "*" --include "*.html"
+    - aws s3 cp ./public s3://randen.me/ --recursive
