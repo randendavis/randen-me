@@ -23,7 +23,7 @@ build:
     - bundle install -j $(nproc) --path vendor/ruby
     - bundle exec jekyll build -d public --trace
 
-stage:
+Stage on me.apps.bp:
   stage: stage
   environment:
     name: me.randen.bp
@@ -36,7 +36,7 @@ stage:
   script:
     - rsync -aPv ./public/ /srv/randen/
 
-deploy:
+Deploy to s3:
   stage: deploy
   image: python:3.8
   environment:
