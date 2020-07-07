@@ -28,6 +28,8 @@ twitter_username: randendavis
 github_username:  randendavis
 
 # Build settings
+permalink: /:categories/:year/:month/:day/:title
+
 theme: minima
 plugins:
   - jekyll-feed
