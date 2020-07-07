@@ -37,6 +37,12 @@ header_pages:
   - about.markdown
   - contact.markdown
   - portfolio.markdown
+  - math_posts.markdown
+
+collections:
+  math_posts:
+    output: true
+    permalink: /:collection/:name
 
 show_excerpts: true
 
