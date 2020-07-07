@@ -18,17 +18,17 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Randen Davis
+title: Randen's blog
 email: randen@mailbox.org
 description: >- # this means to ignore newlines until "baseurl:"
-  Randen's personal web site
+
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://randen.me" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: randendavis
 github_username:  randendavis
 
 # Build settings
-theme: minima
+theme: texture
 plugins:
   - jekyll-feed
 
@@ -51,3 +51,14 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+texture:
+  title: Randen Davis
+  tagline: Hello world
+  date_format: "%b %-d, %Y"
+  social_links:
+    twitter: randendavis
+    github: randendavis
+  style: black
+
+show_excerpts: true
