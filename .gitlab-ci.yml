@@ -21,7 +21,7 @@ build:
     - gem install bundler
     # Install dependencies into ./vendor/ruby
     - bundle install -j $(nproc) --path vendor/ruby
-    - bundle exec jekyll build -d public
+    - bundle exec jekyll build -d public --trace
 
 stage:
   stage: stage
