@@ -28,7 +28,7 @@ twitter_username: randendavis
 github_username:  randendavis
 
 # Build settings
-theme: texture
+theme: minima
 plugins:
   - jekyll-feed
 
@@ -51,14 +51,3 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
-
-texture:
-  title: Randen Davis
-  tagline: Hello world
-  date_format: "%b %-d, %Y"
-  social_links:
-    twitter: randendavis
-    github: randendavis
-  style: black
-
-show_excerpts: true
