@@ -27,7 +27,7 @@ url: "http://randen.me" # the base hostname & protocol for your site, e.g. http:
 github_username:  randendavis
 
 # Build settings
-permalink: /:categories/:year/:month/:day/:title
+permalink: /:categories/:year/:month/:day/:title:output_ext
 
 theme: minima
 plugins:
@@ -42,7 +42,7 @@ header_pages:
 collections:
   math_posts:
     output: true
-    permalink: /:collection/:name
+    permalink: /:collection/:name:output_ext
 
 show_excerpts: true
 
